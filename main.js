@@ -1,14 +1,24 @@
 const app = Vue.createApp({
     data() {
         return {
-            cart:0,
+            cart: 0,
+            message: 'Hello',
             product: 'Socks',
             brand: 'Vue Mastery',
             selectedVariant: 0,
             details: ['50% cotton', '30% wool', '20% polyester'],
-            variants: [
-              { id: 2234, color: 'green', image: './assets/images/socks_green.jpg', quantity: 50 },
-              { id: 2235, color: 'blue', image: './assets/images/socks_blue.jpg', quantity: 0 },
+            variants: [{
+                    id: 2234,
+                    color: 'green',
+                    image: './assets/images/socks_green.jpg',
+                    quantity: 50
+                },
+                {
+                    id: 2235,
+                    color: 'blue',
+                    image: './assets/images/socks_blue.jpg',
+                    quantity: 0
+                },
             ],
             // solution
             onSale: true
@@ -39,6 +49,11 @@ const app = Vue.createApp({
                 return this.brand + ' ' + this.product + ' is on sale.'
             }
             return ''
+        },
+        // геттер вычисляемого значения
+        reversedMessage: function () {
+            // `this` указывает на экземпляр vm
+            return this.message.split('').reverse().join('')
         }
         // solution
     }
